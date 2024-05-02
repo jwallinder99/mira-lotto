@@ -24,30 +24,32 @@ const NumbersInput: React.FC<NumbersInputProps> = ({ handleSubmit }) => {
   };
 
   return (
-    <Card className="">
-      <CardHeader>
-        <CardTitle>See Results for your Draw</CardTitle>
-        <CardDescription>Enter your draw</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form>
-          <div className="flex flex-row gap-3">
-            {draw.map((value, index) => (
-              <Input
-                placeholder={(index + 1).toString()}
-                onChange={(e) => handleChange(index, e.target.value)}
-                className="text-center w-10"
-                value={value}
-                key={index}
-              />
-            ))}
-          </div>
-        </form>
-      </CardContent>
-      <CardFooter className="flex justify-center">
-        <Button onClick={() => handleSubmit(draw)}>Submit</Button>
-      </CardFooter>
-    </Card>
+    <div className="flex flex-col items-center justify-center mt-5">
+      <Card className="">
+        <CardHeader>
+          <CardTitle>See Results for your Draw</CardTitle>
+          <CardDescription>Enter your draw</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <form>
+            <div className="flex flex-row gap-3">
+              {draw.map((value, index) => (
+                <Input
+                  placeholder={(index + 1).toString()}
+                  onChange={(e) => handleChange(index, e.target.value)}
+                  className="text-center w-10"
+                  value={value}
+                  key={index}
+                />
+              ))}
+            </div>
+          </form>
+        </CardContent>
+        <CardFooter className="flex justify-center">
+          <Button onClick={() => handleSubmit(draw)}>Submit</Button>
+        </CardFooter>
+      </Card>
+    </div>
   );
 };
 
