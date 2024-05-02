@@ -1,3 +1,5 @@
+import { data } from "@/data/data";
+
 export interface LotteryCompareRequestBody {
   user_numbers: number[];
   start_date: string;
@@ -12,4 +14,16 @@ export interface LottoResultProps {
   secondary_matches: number;
   currency: string;
   prize_amount: number;
+}
+
+export interface HandleSubmitFunction {
+  (nums: string[]): Promise<string[]>;
+}
+
+export interface NumbersInputProps {
+  handleSubmit: HandleSubmitFunction;
+}
+
+export interface ResultFeedProps {
+  lottoData: typeof data;
 }
