@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import TopNav from "@/components/TopNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans ${inter} dark`}>{children}</body>
+      <body className={`font-sans ${inter} dark`}>
+        <TopNav />
+        {children}
+      </body>
     </html>
   );
 }
