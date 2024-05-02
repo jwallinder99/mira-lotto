@@ -18,7 +18,7 @@ const LottoResult: React.FC<LottoResultProps> = ({
   prize_amount,
 }) => {
   return (
-    <Card key={draw_code} className="w-4/6 flex flex-row">
+    <Card key={draw_code} className="lg:w-4/6  flex flex-row">
       <CardHeader>
         <CardTitle className="font-bold text-muted-foreground">
           {lottery_name}
