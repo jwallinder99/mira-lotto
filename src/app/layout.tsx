@@ -23,7 +23,6 @@ export default function RootLayout({
 			<body className={`font-sans ${inter} dark`}>
 				<TopNav />
 				{children}
-				<Footer />
 				<Toaster />
 			</body>
 		</html>
