@@ -27,11 +27,7 @@ export default function FetchWrapper() {
 					id: "fetch-begin",
 				}
 			);
-			console.log("Data from fetch wrapper");
-			console.log(nums.filter(Boolean));
-			console.log(secondNums.filter(Boolean));
-			console.log(startDate);
-			console.log(endDate);
+
 			const sanitizedNums = nums.filter(Boolean);
 			const sanitizedSecondNums = secondNums
 				.filter(Boolean)
@@ -42,12 +38,10 @@ export default function FetchWrapper() {
 				startDate,
 				endDate
 			);
-			console.log("Data from fetch");
-			console.log(data);
+
 			setLottoData(data);
 			toast.dismiss("fetch-begin");
 		} catch (error) {
-			console.log(error);
 			toast("Error occurred");
 		}
 

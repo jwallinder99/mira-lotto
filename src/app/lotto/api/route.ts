@@ -4,7 +4,7 @@ const baseUrl = process.env.BASE_URL
 
 export async function POST(request: Request) {
   const body = await request.json();
-  console.log(body);
+  
   const result = await fetch(
     `https://${baseUrl}/lottery-compare`,
     {
@@ -16,6 +16,6 @@ export async function POST(request: Request) {
     }
   );
   const data = await result.json();
-  console.log(data);
+  
   return Response.json(data);
 }

@@ -9,7 +9,7 @@ export const fetchResults = async (userNums: string[], secondNums: Number[], sta
 
   const sanitizedUserNums = userNums.map((num) => Number(num));
   try {
-    console.log(sanitizedUserNums);
+    
     const res = await fetch("/lotto/api", {
       method: "POST",
       headers: {
@@ -24,7 +24,7 @@ export const fetchResults = async (userNums: string[], secondNums: Number[], sta
     });
 
     const data = res.json();
-    console.log(data);
+    
     return data;
   } catch (error) {
     console.log(error);
@@ -33,8 +33,6 @@ export const fetchResults = async (userNums: string[], secondNums: Number[], sta
 
 export const formatDate = (userDate: Date | undefined) => {
   if (!userDate) return "Pick a date"; 
-  console.log("Date before format")
-  console.log(userDate)
   const dateObj = new Date(userDate);
   const year = dateObj.getFullYear();
   const month = ("0" + (dateObj.getMonth() + 1)).slice(-2);
