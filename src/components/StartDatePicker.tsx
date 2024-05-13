@@ -34,7 +34,7 @@ const StartDatePicker: React.FC<DatePickerProps> = ({ date, setDate }) => {
 					mode="single"
 					selected={date}
 					onSelect={setDate}
-					initialFocus
+					defaultMonth={new Date(2014, 0, 1)}
 				/>
 			</PopoverContent>
 		</Popover>

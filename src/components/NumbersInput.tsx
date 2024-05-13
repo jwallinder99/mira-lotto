@@ -28,13 +28,6 @@ const NumbersInput: React.FC<NumbersInputProps> = ({ handleSubmit }) => {
 
 	const [endDate, setEndDate] = useState<Date>();
 
-	// useEffect(() => {
-	// 	console.log("Start Date" + " " + formatDate(startDate));
-	// }, [startDate]);
-	// useEffect(() => {
-	// 	console.log("End Date" + " " + formatDate(endDate));
-	// }, [endDate]);
-
 	const handleChange = (index: number, value: string) => {
 		const updatedDraw = [...draw]; // Create a copy of the array
 		updatedDraw[index] = value; // Update the value at the specified index
@@ -50,11 +43,6 @@ const NumbersInput: React.FC<NumbersInputProps> = ({ handleSubmit }) => {
 	const handleButtonClick = () => {
 		const startingDate = formatDate(startDate);
 		const endingDate = formatDate(endDate);
-		console.log("Logs from button click");
-		console.log(draw);
-		console.log(secondaryDraw);
-		console.log(startingDate);
-		console.log(endingDate);
 		handleSubmit(draw, secondaryDraw, startingDate, endingDate);
 	};
 

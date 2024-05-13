@@ -1,5 +1,4 @@
-import { LotteryCompareRequestBody } from "@/types/types";
-import { NextResponse } from "next/server";
+
 const baseUrl = process.env.BASE_URL
 
 export async function POST(request: Request) {
