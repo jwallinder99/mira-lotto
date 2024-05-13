@@ -17,7 +17,7 @@ export interface LottoResultProps {
 }
 
 export interface HandleSubmitFunction {
-  (nums: string[]): Promise<string[]>;
+  (nums: string[], secondNums: string[], startDate: string, endDate: string): Promise<string[]>;
 }
 
 export interface NumbersInputProps {
@@ -26,4 +26,15 @@ export interface NumbersInputProps {
 
 export interface ResultFeedProps {
   lottoData: typeof data;
+}
+
+export interface DateState {
+  'start-date': string;
+  'end-date': string;
+}
+
+
+export interface DatePickerProps {
+  date: Date | undefined,
+  setDate: any;
 }

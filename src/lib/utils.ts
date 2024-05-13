@@ -5,14 +5,9 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const fetchResults = async (userNums: string[]) => {
-  // const body: LotteryCompareRequestBody = {
-  //   user_numbers: [38, 36, 33, 23, 19, 18, 2],
-  //   start_date: "2014-01-20",
-  //   end_date: "2024-03-23",
-  // };
-  const sanitizedUserNums = userNums.map((num) => Number(num));
+export const fetchResults = async (userNums: string[], secondNums: Number[], startDate: string, endDate: string) => {
 
+  const sanitizedUserNums = userNums.map((num) => Number(num));
   try {
     console.log(sanitizedUserNums);
     const res = await fetch("/lotto/api", {
@@ -21,9 +16,10 @@ export const fetchResults = async (userNums: string[]) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        user_numbers: sanitizedUserNums, //Between 5 and 7 numbers
-        start_date: "2014-01-20",
-        end_date: "2024-03-23",
+        user_numbers: sanitizedUserNums,
+        secondary_numbers: secondNums, //Between 5 and 7 numbers
+        start_date: startDate,
+        end_date: endDate,
       }),
     });
 
@@ -33,4 +29,16 @@ export const fetchResults = async (userNums: string[]) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const formatDate = (userDate: Date | undefined) => {
+  if (!userDate) return "Pick a date"; 
+  console.log("Date before format")
+  console.log(userDate)
+  const dateObj = new Date(userDate);
+  const year = dateObj.getFullYear();
+  const month = ("0" + (dateObj.getMonth() + 1)).slice(-2);
+  const day =  String("0" + dateObj.getDate()).slice(-2);
+  const formattedDate = `${year}-${month}-${day}`;
+  return formattedDate;
 };
