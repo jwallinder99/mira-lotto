@@ -23,8 +23,8 @@ const NumbersInput: React.FC<NumbersInputProps> = ({ handleSubmit }) => {
 	const [secondaryDraw, setSecondaryDraw] = useState<string[]>(
 		Array(2).fill("")
 	);
-	const goodStartDate = new Date(2014, 0, 1);
-	const [startDate, setStartDate] = useState<Date>(goodStartDate);
+
+	const [startDate, setStartDate] = useState<Date>();
 
 	const [endDate, setEndDate] = useState<Date>();
 
